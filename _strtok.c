@@ -1,62 +1,68 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <signal.h>
-#include "shell.h"
+#include <string.h>
 
 /**
- * _strtok - tokenizes a string based on a delimiter
+ * split_string - Splits a string into an array of words.
+ * @str: The string to be split.
+ * @delim: The delimiter used to split the string.
  *
- * @str: string to operate
- * @delim: delimiter
- *
- * Return: pointer to string
- * or NULL if there is no match
- *
+ * Return: An array of words (tokens) obtained from the string. The last element
+ *         in the array is NULL.
  */
-char *_strtok(char *str, const char *delim)
+char **split_string(char *str, const char *delim)
 {
-	const char *org = delim;
-	int isEqual = 1, isGetInto = 0;
-	static char *step, *stepNull;
-	static int isEnd;
+    char **tokens = NULL;
+    char *word = NULL;
+    int num_tokens = 0;
+    int i = 0;
 
-	if (str)
-		isEnd = 0;
-	if (isEnd)
-		return (NULL);
-	step = (str) ? str : (stepNull + 1);
-	if (str)
-		stepNull = str;
-	else
-		str = step;
-	while (*str && isEqual)
-	{
-		isEqual = 0;
-		for (delim = org; *delim; delim++)
-			if (*str == *delim)
-				isEqual = 1;
-		str = (!isEqual) ? str : str + 1;
-		isEnd = (*str) ? 0 : 1;
-		if (isEnd)
-			return (NULL);
-	}
-	step = str;
-	while (*str && !isEqual)
-	{
-		isEqual = 0;
-		for (delim = org; *delim; delim++)
-			if (*str == *delim)
-			{
-				isGetInto = 1, isEqual = 1;
-				isEnd = (*(str + 1)) ? 0 : 1, *str = '\0';
-			}
-		str = (isEqual) ? str : str + 1;
-		if (!isGetInto && !*str)
-			isEnd = 1;
-	}
-	return (stepNull = str, step);
+    
+    if (str == NULL || delim == NULL)
+        return NULL;
+
+    
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (strchr(delim, str[i]) != NULL && (i == 0 || strchr(delim, str[i - 1]) == NULL))
+            num_tokens++;
+    }
+
+    
+    tokens = malloc((num_tokens + 1) * sizeof(char *));
+    if (tokens == NULL)
+        return NULL;
+
+    
+    word = strtok(str, delim);
+    i = 0;
+    while (word != NULL)
+    {
+        tokens[i] = word;
+        i++;
+        word = strtok(NULL, delim);
+    }
+
+    
+    tokens[i] = NULL;
+
+    return tokens;
+}
+
+int main(void)
+{
+    char str[] = "Hello world! How are you?";
+    const char delim[] = " !?";
+    char **words = split_string(str, delim);
+
+    printf("Original string: %s\n", str);
+    printf("Words:\n");
+    for (int i = 0; words[i] != NULL; i++)
+    {
+        printf("%s\n", words[i]);
+        free(words[i]); 
+    }
+    free(words); 
+
+    return 0;
 }
