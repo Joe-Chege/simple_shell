@@ -24,12 +24,16 @@ typedef struct Node
 Node *build_path_list()
 {
     char *path = getenv("PATH");
+    Node *head = NULL;
+    Node *tail = NULL;
+    char *dir;
+
     if (path == NULL)
         return NULL;
 
-    Node *head = NULL;
-    Node *tail = NULL;
-    char *dir = strtok(path, ":");
+    dir = strtok(path, ":");
+
+
 
     while (dir != NULL)
     {
@@ -67,7 +71,6 @@ Node *build_path_list()
 
 int main(void)
 {
-    // Example usage of build_path_list function
     Node *head = build_path_list();
     Node *node = head;
     while (node != NULL)
@@ -76,7 +79,6 @@ int main(void)
         node = node->next;
     }
 
-    // Free the memory used by the linked list
     node = head;
     while (node != NULL)
     {

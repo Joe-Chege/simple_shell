@@ -51,13 +51,16 @@ char **split_string(char *str, const char *delim)
 
 int main(void)
 {
+    int i;
+
     char str[] = "Hello world! How are you?";
     const char delim[] = " !?";
     char **words = split_string(str, delim);
 
     printf("Original string: %s\n", str);
     printf("Words:\n");
-    for (int i = 0; words[i] != NULL; i++)
+
+    for (i = 0; words[i] != NULL; i++)
     {
         printf("%s\n", words[i]);
         free(words[i]); 

@@ -15,13 +15,14 @@
 void print_path_directories(void)
 {
     char *path = getenv("PATH");
+    char *dir = strtok(path, ":");
+
     if (path == NULL)
     {
         perror("getenv");
         return;
     }
 
-    char *dir = strtok(path, ":");
     while (dir != NULL)
     {
         printf("%s\n", dir);

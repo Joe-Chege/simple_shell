@@ -54,9 +54,9 @@ int main(void)
 {
 	/* Example usage of my_execve function */
 
-	const char *filename = "/bin/ls";  // Path to the executable file
-	char *const argv[] = {"ls", "-l", NULL};  // Array of arguments to be passed to the new program
-	char *const envp[] = {NULL};  // Array of environment variables to be passed to the new program
+	const char *filename = "/bin/ls";
+	char *const argv[] = {"ls", "-l", NULL};
+	char *const envp[] = {NULL};
 
 	my_execve(filename, argv, envp);
 

@@ -12,19 +12,23 @@
  */
 int _setenv(const char *name, const char *value, int overwrite)
 {
-    if (name == NULL || value == NULL)
-        return -1;
+    char *new_env_var;
 
     size_t name_len = strlen(name);
     size_t value_len = strlen(value);
+    char *env_var = getenv(name);
+
+    if (name == NULL || value == NULL)
+        return -1;
+
+    
 
    
-    char *env_var = getenv(name);
     if (env_var != NULL && overwrite == 0)
         return 0;
 
     
-    char *new_env_var = malloc(name_len + value_len + 2);
+    new_env_var = malloc(name_len + value_len + 2);
     if (new_env_var == NULL)
     {
         perror("malloc");

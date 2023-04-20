@@ -11,12 +11,16 @@
 char *_getenv(const char *name)
 {
     
+
+    extern char **environ;
+    char **env = environ;
+
+
     if (name == NULL || *name == '\0')
         return NULL;
 
     
-    extern char **environ;
-    char **env = environ;
+    
     while (*env != NULL)
     {
         
@@ -34,7 +38,6 @@ char *_getenv(const char *name)
 
 int main(void)
 {
-    // Example usage of _getenv function
     char *value = _getenv("MY_VARIABLE");
     if (value != NULL)
         printf("MY_VARIABLE=%s\n", value);
