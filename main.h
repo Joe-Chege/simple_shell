@@ -17,6 +17,28 @@
 #include <sys/wait.h>
 #include <signal.h>
 
+
+
+
+/* Function prototypes */
+int main_getenv(void);
+int main_fork(void); /* Updated function name */
+int main_pathdir(void);
+int main_pid(void);
+int main_ppid(void);
+int printac(void);
+int printdir(void);
+void print_path_directories(void);
+int main_printpath(void);
+int set_env(void);
+char *_strtok(char *str, const char *delim);
+int unset_env(void);
+
+
+
+
+
+
 typedef int pid_t;
 
 
