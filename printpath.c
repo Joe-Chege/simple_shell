@@ -20,12 +20,13 @@
     }
 } */
 
-int main_printpath(int ac, char **av)
+int main_printpath(void)
 {
     unsigned int i;
     struct stat st;
+    char *av[] = {"main", "file_path", NULL};
 
-    if (ac < 2)
+    if (av[1] == NULL)
     {
         printf("Usage: %s path_to_file ...\n", av[0]);
         return (1);

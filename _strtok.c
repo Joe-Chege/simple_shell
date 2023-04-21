@@ -1,68 +1,43 @@
 #include "main.h"
+
 /**
- * split_string - Splits a string into an array of words.
+ * _strtok - Splits a string into an array of words.
  * @str: The string to be split.
  * @delim: The delimiter used to split the string.
  *
- * Return: An array of words (tokens) obtained from the string. The last element
- *         in the array is NULL.
+ * Return: A pointer to the first token found in the string.
  */
-char **split_string(char *str, const char *delim)
+char *_strtok(char *str, const char *delim)
 {
-    char **tokens = NULL;
-    char *word = NULL;
-    int num_tokens = 0;
-    int i = 0;
+    static char *last_token = NULL;
+    char *token = NULL;
 
-    
-    if (str == NULL || delim == NULL)
+    if (str != NULL)
+        last_token = str;
+
+    if (last_token == NULL)
         return NULL;
 
-    
-    for (i = 0; str[i] != '\0'; i++)
-    {
-        if (strchr(delim, str[i]) != NULL && (i == 0 || strchr(delim, str[i - 1]) == NULL))
-            num_tokens++;
-    }
+    token = strtok(last_token, delim);
+    last_token = (token != NULL) ? token + strlen(token) : NULL;
 
-    
-    tokens = malloc((num_tokens + 1) * sizeof(char *));
-    if (tokens == NULL)
-        return NULL;
-
-    
-    word = strtok(str, delim);
-    i = 0;
-    while (word != NULL)
-    {
-        tokens[i] = word;
-        i++;
-        word = strtok(NULL, delim);
-    }
-
-    
-    tokens[i] = NULL;
-
-    return tokens;
+    return token;
 }
 
-int strtok_main(void)
+int main(void)
 {
     int i;
-
     char str[] = "Hello world! How are you?";
     const char delim[] = " !?";
-    char **words = split_string(str, delim);
+    char *token = NULL;
 
     printf("Original string: %s\n", str);
     printf("Words:\n");
 
-    for (i = 0; words[i] != NULL; i++)
+    while ((token = _strtok(token == NULL ? str : NULL, delim)) != NULL)
     {
-        printf("%s\n", words[i]);
-        free(words[i]); 
+        printf("%s\n", token);
     }
-    free(words); 
 
     return 0;
 }
