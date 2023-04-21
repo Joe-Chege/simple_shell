@@ -5,7 +5,7 @@
  *
  * Return: Always 0.
  */
-int pid_main(void)
+int main_pid(void)
 {
     pid_t my_pid;
 
