@@ -7,7 +7,7 @@
  *
  * Return: 0 on success
  */
-int printac_main(int argc, char *argv[])
+int printac(int argc, char *argv[])
 {
 	int i = 0;
 

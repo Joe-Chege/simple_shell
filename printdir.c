@@ -33,7 +33,7 @@ void print_path_directories(void)
  *
  * Return: 0 on success
  */
-int printdir_main(void)
+int printdir(void)
 {
     print_path_directories();
 

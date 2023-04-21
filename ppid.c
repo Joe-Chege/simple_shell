@@ -5,7 +5,7 @@
  *
  * Return: Always 0.
  */
-int ppid_main(void)
+int main_ppid(void)
 {
     pid_t my_ppid;
 

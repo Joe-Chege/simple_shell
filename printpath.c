@@ -20,7 +20,7 @@
     }
 } */
 
-int printpath_main(int ac, char **av)
+int main_printpath(int ac, char **av)
 {
     unsigned int i;
     struct stat st;
