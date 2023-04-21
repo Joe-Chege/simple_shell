@@ -34,7 +34,7 @@ char *_getenv(const char *name)
     return NULL;
 }
 
-int getenv_main(void)
+int main_getenv(void)
 {
     char *value = _getenv("MY_VARIABLE");
     if (value != NULL)
