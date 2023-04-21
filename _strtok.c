@@ -26,7 +26,6 @@ char *_strtok(char *str, const char *delim)
 
 int main(void)
 {
-    int i;
     char str[] = "Hello world! How are you?";
     const char delim[] = " !?";
     char *token = NULL;

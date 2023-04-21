@@ -26,7 +26,7 @@ int main_fork(void); /* Updated function name */
 int main_pathdir(void);
 int main_pid(void);
 int main_ppid(void);
-int printac(void);
+int printac(int argc, char *argv[]);
 int printdir(void);
 void print_path_directories(void);
 int main_printpath(void);
