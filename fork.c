@@ -1,6 +1,6 @@
 #include "main.h"
 
-int fork_main(void)
+int main_fork(void)
 {
     int i;
     pid_t child_pid;
