@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "main.h"
 
 /**
  * _unsetenv - Delete a variable from the environment
@@ -35,7 +33,7 @@ int _unsetenv(const char *name)
     return -1;
 }
 
-int main(void)
+int unsetenv_main(void)
 {
     printf("Before unset:\n");
     printf("MY_VARIABLE1=%s\n", getenv("MY_VARIABLE1"));

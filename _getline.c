@@ -1,13 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "main.h"
 
 /**
  * main - Entry point of the program
  *
  * Return: 0 on success
  */
-int main(void)
+int getline_main(void)
 {
 	char *line = NULL; 
 	size_t bufsize = 0;

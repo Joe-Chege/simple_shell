@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <dirent.h>
+#include "main.h"
 
 /**
  * Node - Structure to represent a node in the linked list
@@ -69,7 +64,7 @@ Node *build_path_list()
     return head;
 }
 
-int main(void)
+int pathdir_main(void)
 {
     Node *head = build_path_list();
     Node *node = head;

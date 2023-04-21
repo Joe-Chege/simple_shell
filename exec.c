@@ -1,11 +1,4 @@
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <errno.h>
+#include "main.h"
 
 /**
  * my_execve - Custom implementation of execve system call.
@@ -50,15 +43,3 @@ int my_execve(const char *filename, char *const argv[], char *const envp[])
 	return 0;
 }
 
-int main(void)
-{
-	/* Example usage of my_execve function */
-
-	const char *filename = "/bin/ls";
-	char *const argv[] = {"ls", "-l", NULL};
-	char *const envp[] = {NULL};
-
-	my_execve(filename, argv, envp);
-
-	return 0;
-}

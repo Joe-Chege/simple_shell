@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <unistd.h>
 #include "main.h"
 
 /**
@@ -7,7 +5,7 @@
  *
  * Return: Always 0.
  */
-int main(void)
+int ppid_main(void)
 {
     pid_t my_ppid;
 

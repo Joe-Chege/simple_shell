@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * main - Entry point of the program
@@ -7,7 +7,7 @@
  *
  * Return: 0 on success
  */
-int main(int argc, char *argv[])
+int printac_main(int argc, char *argv[])
 {
 	int i = 0;
 

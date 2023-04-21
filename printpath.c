@@ -1,18 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <dirent.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sys/wait.h>
-#include <signal.h>
-
+#include "main.h"
 /**
  * print_path_directories - Print directories in PATH environment variable
  */
-void print_path_directories(void)
+/* void print_path_directories(void)
 {
     char *path = getenv("PATH");
     char *dir = strtok(path, ":");
@@ -28,9 +18,9 @@ void print_path_directories(void)
         printf("%s\n", dir);
         dir = strtok(NULL, ":");
     }
-}
+} */
 
-int main(int ac, char **av)
+int printpath_main(int ac, char **av)
 {
     unsigned int i;
     struct stat st;

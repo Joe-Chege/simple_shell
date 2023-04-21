@@ -1,10 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+#include "main.h"
 
-int main(void)
+int fork_main(void)
 {
     int i;
     pid_t child_pid;

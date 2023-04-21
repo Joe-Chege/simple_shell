@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
+#include "main.h"
 /**
  * split_string - Splits a string into an array of words.
  * @str: The string to be split.
@@ -49,7 +46,7 @@ char **split_string(char *str, const char *delim)
     return tokens;
 }
 
-int main(void)
+int strtok_main(void)
 {
     int i;
 

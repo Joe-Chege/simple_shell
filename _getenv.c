@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "main.h"
 
 /**
  * _getenv - Get the value of an environment variable
@@ -36,7 +34,7 @@ char *_getenv(const char *name)
     return NULL;
 }
 
-int main(void)
+int getenv_main(void)
 {
     char *value = _getenv("MY_VARIABLE");
     if (value != NULL)

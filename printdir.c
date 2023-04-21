@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+#include "main.h"
 
 /**
  * print_path_directories - Prints each directory in PATH environment variable
@@ -36,7 +33,7 @@ void print_path_directories(void)
  *
  * Return: 0 on success
  */
-int main(void)
+int printdir_main(void)
 {
     print_path_directories();
 
