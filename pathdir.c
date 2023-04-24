@@ -219,7 +219,7 @@ Node *build_path_list()
     return head;
 }
 
-int main_pathdir(void)
+int _pathdir(void)
 {
     Node *head = build_path_list();
     Node *node = head;
