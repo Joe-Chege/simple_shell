@@ -32,14 +32,12 @@ void print_path_directories(void);
 int main_printpath(void);
 int set_env(void);
 char *_strtok(char *str, const char *delim);
-int unset_env(void);
-
-
-
-
-
+int _unsetenv(const char *name);
+int main_unsetenv (void);
 
 typedef int pid_t;
+
+
 
 
 

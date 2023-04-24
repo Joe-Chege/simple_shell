@@ -33,7 +33,7 @@ int _unsetenv(const char *name)
     return -1;
 }
 
-int main (void)
+int main_unsetenv (void)
 {
     printf("Before unset:\n");
     printf("MY_VARIABLE1=%s\n", getenv("MY_VARIABLE1"));
