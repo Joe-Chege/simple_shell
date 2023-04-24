@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
  * print_path_directories - Print directories in PATH environment variable
  */

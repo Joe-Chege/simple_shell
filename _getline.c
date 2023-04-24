@@ -1,29 +1,25 @@
-#include "main.h"
+#include "shell.h"
 
 /**
- * main - Entry point of the program
+ * _getline - Reads a line of input from the user
  *
- * Return: 0 on success
+ * Return: Pointer to the line of input, or NULL on failure
  */
-int getline_main(void)
+char *_getline(void)
 {
-	char *line = NULL; 
-	size_t bufsize = 0;
-	ssize_t characters;
+    char *line = NULL;
+    ssize_t bufsize = 0;
+    ssize_t characters;
 
-	printf("$ "); 
+    printf("$ "); 
 
-	characters = getline(&line, &bufsize, stdin); 
+    characters = getline(&line, &bufsize, stdin);
 
-	if (characters == -1) 
-	{
-		perror("getline");
-		exit(EXIT_FAILURE);
-	}
+    if (characters == -1)
+    {
+        perror("getline");
+        return NULL;
+    }
 
-	printf("You entered: %s", line);
-
-	free(line); 
-
-	return 0;
+    return line;
 }

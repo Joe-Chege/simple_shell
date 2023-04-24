@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * _strtok - Splits a string into an array of words.
@@ -24,7 +24,7 @@ char *_strtok(char *str, const char *delim)
     return token;
 }
 
-int main(void)
+int main_strok(void)
 {
     char str[] = "Hello world! How are you?";
     const char delim[] = " !?";

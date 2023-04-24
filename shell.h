@@ -1,4 +1,3 @@
-
 #ifndef MAIN_H
 #define MAIN_H
 
@@ -34,6 +33,7 @@ int set_env(void);
 char *_strtok(char *str, const char *delim);
 int _unsetenv(const char *name);
 int main_unsetenv (void);
+int main_strok(void);
 
 typedef int pid_t;
 

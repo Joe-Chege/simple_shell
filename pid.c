@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <unistd.h>
-#include "main.h"
+#include "shell.h"
 /**
  * main_pid - Print the current process ID (PID)
  *
  * Return: Always 0.
  */
 
-int main_pid(void)
+int main(void)
 {
     pid_t my_pid;
 
