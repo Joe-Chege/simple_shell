@@ -10,9 +10,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
-#include <sys/wait.h>
 #include <dirent.h>
-#include <sys/stat.h>
 #include <sys/wait.h>
 #include <signal.h>
 #include <limits.h>
@@ -49,10 +47,7 @@ typedef struct builtins
 	void (*f)(vars_t *);
 } builtins_t;
 
-/* typedef struct {
-    char *name;
-    char *value;
-} Alias; */
+
 
 char **make_env(char **env);
 void free_env(char **env);
