@@ -17,21 +17,20 @@
 
 /**
  * struct variables - variables
- * @count: count of commands entered
  * @av: command line arguments
  * @buffer: buffer of command
  * @env: environment variables
+ * @count: count of commands entered
  * @argv: arguments at opening of shell
  * @status: exit status
  * @commands: commands to execute
  */
 typedef struct variables
 {
-	
-	size_t count;
 	char **av;
 	char *buffer;
 	char **env;
+	size_t count;
 	char **argv;
 	int status;
 	char **commands;
