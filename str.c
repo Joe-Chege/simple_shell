@@ -21,7 +21,7 @@ ssize_t _puts(char *str)
 }
 
 /**
- * _strdup - returns pointer to new mem alloc space which contains copy
+ * _strdup - returns pointer to new memory allocated space which contains copy
  * @strtodup: string to be duplicated
  * Return: a pointer to the new duplicated string
  */
@@ -65,6 +65,22 @@ int _strcmpr(char *strcmp1, char *strcmp2)
 }
 
 /**
+ * _strlen - returns the length of a string
+ * @str: string to be measured
+ * Return: length of string
+ */
+unsigned int _strlen(char *str)
+{
+	unsigned int len;
+
+	len = 0;
+
+	for (len = 0; str[len]; len++)
+		;
+	return (len);
+}
+
+/**
  * _strcat - concatenates two strings
  * @strc1: first string
  * @strc2: second string
@@ -104,18 +120,4 @@ char *_strcat(char *strc1, char *strc2)
 	return (newstring);
 }
 
-/**
- * _strlen - returns the length of a string
- * @str: string to be measured
- * Return: length of string
- */
-unsigned int _strlen(char *str)
-{
-	unsigned int len;
 
-	len = 0;
-
-	for (len = 0; str[len]; len++)
-		;
-	return (len);
-}

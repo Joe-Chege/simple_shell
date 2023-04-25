@@ -3,7 +3,7 @@
 /**
  * print_error - prints error messages to standard error
  * @vars: pointer to struct of variables
- * @msg: message to print
+ * @msg: message to be printed
  *
  * Return: void
  */
@@ -26,25 +26,6 @@ void print_error(vars_t *vars, char *msg)
 		perror("");
 }
 
-/**
- * _puts2 - prints a string to standard error
- * @str: string to print
- *
- * Return: void
- */
-void _puts2(char *str)
-{
-	ssize_t num, len;
-
-	num = _strlen(str);
-	len = write(STDERR_FILENO, str, num);
-	if (len != num)
-	{
-		perror("Fatal Error");
-		exit(1);
-	}
-
-}
 
 /**
  * _uitoa - converts an unsigned int to a string
@@ -74,3 +55,24 @@ char *_uitoa(unsigned int count)
 	}
 	return (numstr);
 }
+
+/**
+ * _puts2 - prints a string to standard error
+ * @str: string to be printed
+ *
+ * Return: void
+ */
+void _puts2(char *str)
+{
+	ssize_t num, len;
+
+	num = _strlen(str);
+	len = write(STDERR_FILENO, str, num);
+	if (len != num)
+	{
+		perror("Fatal Error");
+		exit(1);
+	}
+
+}
+
