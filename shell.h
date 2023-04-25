@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef SHELL_H
+#define SHELL_H
 
 
 #include <unistd.h>
@@ -49,11 +49,10 @@ typedef struct builtins
 	void (*f)(vars_t *);
 } builtins_t;
 
-typedef struct {
+/* typedef struct {
     char *name;
     char *value;
-} Alias;
-
+} Alias; */
 
 char **make_env(char **env);
 void free_env(char **env);
@@ -89,4 +88,4 @@ void print_error(vars_t *vars, char *msg);
 void _puts2(char *str);
 char *_uitoa(unsigned int count);
 
-#endif /* MAIN_H_ */
+#endif /* SHELL_H_ */
