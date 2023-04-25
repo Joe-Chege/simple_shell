@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * add_key - create a new environment variable
+ * create_key - create a new environment variable
  * @vars: pointer to struct of variables
  *
  * Return: void
  */
-void add_key(vars_t *vars)
+void create_key(vars_t *vars)
 {
 	unsigned int i;
 	char **newenv;
@@ -89,7 +89,7 @@ char *add_value(char *key, char *value)
 
 /**
  * _atoi - converts a string into an integer
- * @str: string to convert
+ * @str: string to be converted
  *
  * Return: the integer value, or -1 if an error occurs
  */

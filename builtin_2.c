@@ -25,36 +25,6 @@ void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 		check[i].f(vars);
 	return (check[i].f);
 }
-/**
- * new_exit - exit program
- * @vars: variables
- * Return: void
- */
-void new_exit(vars_t *vars)
-{
-	int status;
-
-	if (_strcmpr(vars->av[0], "exit") == 0 && vars->av[1] != NULL)
-	{
-		status = _atoi(vars->av[1]);
-		if (status == -1)
-		{
-			vars->status = 2;
-			print_error(vars, ": Illegal number: ");
-			_puts2(vars->av[1]);
-			_puts2("\n");
-			free(vars->commands);
-			vars->commands = NULL;
-			return;
-		}
-		vars->status = status;
-	}
-	free(vars->buffer);
-	free(vars->av);
-	free(vars->commands);
-	free_env(vars->env);
-	exit(vars->status);
-}
 
 /**
  * _env - prints the current environment
@@ -74,7 +44,7 @@ void _env(vars_t *vars)
 }
 
 /**
- * new_setenv - create a new environment variable, or edit an existing variable
+ * new_setenv - create a new environment variable / edit an existing variable
  * @vars: pointer to struct of variables
  *
  * Return: void
@@ -92,7 +62,7 @@ void new_setenv(vars_t *vars)
 	}
 	key = find_key(vars->env, vars->av[1]);
 	if (key == NULL)
-		add_key(vars);
+		create_key(vars);
 	else
 	{
 		var = add_value(vars->av[1], vars->av[2]);
@@ -112,7 +82,7 @@ void new_setenv(vars_t *vars)
 }
 
 /**
- * new_unsetenv - remove an environment variable
+ * new_unsetenv - removes an environment variable
  * @vars: pointer to a struct of variables
  *
  * Return: void
@@ -188,3 +158,33 @@ int _unsetenv(const char *name)
     return -1;
 }
 
+/**
+ * new_exit - exits the program
+ * @vars: variables
+ * Return: void
+ */
+void new_exit(vars_t *vars)
+{
+	int status;
+
+	if (_strcmpr(vars->av[0], "exit") == 0 && vars->av[1] != NULL)
+	{
+		status = _atoi(vars->av[1]);
+		if (status == -1)
+		{
+			vars->status = 2;
+			print_error(vars, ": Illegal number: ");
+			_puts2(vars->av[1]);
+			_puts2("\n");
+			free(vars->commands);
+			vars->commands = NULL;
+			return;
+		}
+		vars->status = status;
+	}
+	free(vars->buffer);
+	free(vars->av);
+	free(vars->commands);
+	free_env(vars->env);
+	exit(vars->status);
+}
