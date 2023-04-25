@@ -47,7 +47,7 @@ typedef struct builtins
 	void (*f)(vars_t *);
 } builtins_t;
 
-
+void sig_handler(int uuv);
 
 char **make_env(char **env);
 void free_env(char **env);

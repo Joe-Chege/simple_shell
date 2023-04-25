@@ -1,22 +1,8 @@
 #include "shell.h"
+#include "globals.h"
 
 /* global variable for ^C handling */
-unsigned int sig_flag;
-
-/**
- * sig_handler - handles the interrupt signal caused by pressing ^C
- * @uuv: unused variable (required for signal function prototype)
- *
- * Return: void
- */
-static void sig_handler(int uuv)
-{
-	(void) uuv;
-	if (sig_flag == 0)
-		_puts("\n$ ");
-	else
-		_puts("\n");
-}
+unsigned int sig_flag = 0;
 
 /**
  * main - Shell program
@@ -26,6 +12,7 @@ static void sig_handler(int uuv)
  *
  * Return: 0 or exit status, or ?
  */
+
 int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
 	size_t len_buffer = 0;
@@ -39,10 +26,8 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 		is_pipe = 1;
 	if (is_pipe == 0)
 		_puts("$ ");
-	sig_flag = 0;
 	while (getline(&(vars.buffer), &len_buffer, stdin) != -1)
 	{
-		sig_flag = 1;
 		vars.count++;
 		vars.commands = tokenize(vars.buffer, ";");
 		for (i = 0; vars.commands && vars.commands[i] != NULL; i++)
@@ -51,11 +36,10 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 			if (vars.av && vars.av[0])
 				if (check_for_builtins(&vars) == NULL)
 					check_for_path(&vars);
-		free(vars.av);
+			free(vars.av);
 		}
 		free(vars.buffer);
 		free(vars.commands);
-		sig_flag = 0;
 		if (is_pipe == 0)
 			_puts("$ ");
 		vars.buffer = NULL;
