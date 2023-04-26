@@ -251,4 +251,4 @@ $ exit
 ## Authors:
 
 - *Mitchell Wachera* - [@mitchellshera](https://github.com/mitchellshera) 
-- *Joe Chege*  - [@Joe-Chege](https://github.com/joechege)
+- *Joe Chege*  - [@Joe-Chege](https://github.com/Joe-Chege)
